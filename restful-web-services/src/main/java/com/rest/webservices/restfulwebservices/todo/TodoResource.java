@@ -10,23 +10,24 @@ import java.net.URI;
 import java.util.List;
 
 @CrossOrigin(origins="http://localhost:4200/")
+@RequestMapping("users")
 @RestController
 public class TodoResource {
 
     @Autowired
     private TodoHardcodedService todoService;
 
-    @GetMapping("/users/{username}/todos")
+    @GetMapping("/{username}/todos")
     public List<Todo> getAllTodos(@PathVariable String username){
         return todoService.finAll();
     }
 
-    @GetMapping("/users/{username}/todos/{id}")
+    @GetMapping("/{username}/todos/{id}")
     public Todo getTodo(@PathVariable String username, @PathVariable long id){
         return todoService.findByID(id);
     }
 
-    @DeleteMapping("/users/{username}/todos/{id}")
+    @DeleteMapping("/{username}/todos/{id}")
     public ResponseEntity<Void> deleteTodo(
             @PathVariable String username, @PathVariable long id){
 
@@ -38,7 +39,7 @@ public class TodoResource {
         return ResponseEntity.notFound().build();
     }
 
-    @PutMapping("/users/{username}/todos/{id}")
+    @PutMapping("/{username}/todos/{id}")
     public ResponseEntity<Todo> updateTodo(
             @PathVariable String username,
             @PathVariable long id, @RequestBody Todo todo){
@@ -48,7 +49,7 @@ public class TodoResource {
         return new ResponseEntity<Todo>(todo, HttpStatus.OK);
     }
 
-    @PostMapping("/users/{username}/todos")
+    @PostMapping("/{username}/todos")
     public ResponseEntity<Void> updateTodo(
             @PathVariable String username, @RequestBody Todo todo){
 
