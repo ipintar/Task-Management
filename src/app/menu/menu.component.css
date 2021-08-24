@@ -1,0 +1,14 @@
+.sticky{
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+    width: 100%;
+  }
+  
+  .sidebar {
+    font-size: 25px;
+    font-weight: 500;
+    color: #000;
+    opacity: 80%;
+  }

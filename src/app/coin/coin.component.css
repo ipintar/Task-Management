@@ -1,0 +1,13 @@
+tr { display: block; float: left; }
+th, td { display: block; }
+
+
+.positive {
+    color: green;
+    font-weight: bold;
+}
+
+.negative {
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,28 @@
+.button {
+    background-color: #050505; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    opacity: 100;
+    
+  }
+
+  .sticky{
+    position: fixed;
+    top: 0;
+    overflow: hidden;
+    z-index: 10;
+  }
+  
+  .sidebar {
+    font-size: 25px;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    opacity: 80%;
+  }

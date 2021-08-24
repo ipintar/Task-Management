@@ -1,0 +1,53 @@
+<h1>Coins from
+    <a href="https://www.coingecko.com/en/api" target="_blank"> coingecko.com</a>
+</h1>
+<div class="ng-autocomplete">
+    <ng-autocomplete 
+      [data]="coins"
+      [searchKeyword]="keyword"
+      (selected)='selectEvent($event)'
+      (inputChanged)='onChangeSearch($event)'
+      (inputFocused)='onFocused($event)'
+      [itemTemplate]="itemTemplate"
+      [notFoundTemplate]="notFoundTemplate">                                 
+    </ng-autocomplete>
+    
+    <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+    </ng-template>
+    
+    <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+    </ng-template>
+    </div>
+<div class="container" style="padding: 30px;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Logo</th>
+                <th>Name</th>
+                <th (click)="sortByPrice()">Price USD</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of coins | paginate:{itemsPerPage: 15, currentPage:p}">
+                <td>
+                    <img src = "{{item.image}}" width="50" height="50">
+                </td>
+                <td>{{item.name}}</td>
+                <td>{{item.current_price | currency}}</td>
+                <td >
+                    <button (click)="openCoin(item.id)" class="btn btn-success">Open</button>
+                </td>
+            </tr>
+    
+        </tbody>
+    </table>
+    <button class="btn btn-success" (click)="refresh()">rfrsh</button>
+    
+<div id ="pagination">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </div>
+</div>
+

@@ -1,0 +1,19 @@
+
+    <header>
+        <!-- <div #stickyMenu [class.sticky] = "sticky"> -->
+            <div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a routerLink="/welcome/user" class="navbar-brand">
+                Task management and Crypto live</a>
+                <ul class="nabvar-nav navbar-collapse justify-content-end" style="list-style-type:none;">
+                    <li><a style="color: rgb(255, 255, 255);" *ngIf="!hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+                    <li><a style="color: rgb(255, 255, 255);" *ngIf="hardcodedAuthenticationService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
+                </ul>
+    </nav>
+</div>
+</header>
+
+
+
+  
+  
